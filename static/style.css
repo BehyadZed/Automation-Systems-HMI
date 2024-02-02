@@ -1,0 +1,164 @@
+html,body {
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    background: black;
+    color: yellow;
+}
+
+
+
+.wrapper {
+    padding: 0px 0px;
+  }
+  
+  .svg-container { 
+      display: inline-block;
+      position: relative;
+      width: 90%;
+      padding-bottom: 35%;
+      vertical-align: middle; 
+      overflow: hidden; 
+    background: #000000;
+  }
+  
+  .svg-content { 
+      display: inline-block;
+      position: absolute;
+      top: 0;
+      left: 0;
+  }
+  
+
+  .wrp {
+    padding: 20px 295px; /* Outer Padding */ 
+    }
+
+table {
+    padding: 0px 0px;  /* Inner Padding */
+    vertical-align: right;
+    color: yellow;
+    background-color: #003347;
+    height: 500px;
+    width: 400px;
+    border: 10;
+ }
+
+ td {
+    text-align: center; /* second column*/
+}
+
+th {
+    text-align: center; /* first column*/
+}
+
+
+.panel-container {
+    display: flex;
+    flex-direction: row;
+
+    justify-content: space-around;
+    flex-wrap: nowrap;
+    align-items: stretch;
+}
+
+
+.panel-left {
+    flex: 2;  /* manual resize */
+    width: 3000px;
+    color: "red"
+}
+
+.splitter {
+    flex: 0; /* manual resize */
+    width: 1200px;
+    border: 3px solid rgba(245, 245, 245, 0.884);
+}
+
+.panel-right {
+    flex: 4;
+    width: 2000px;
+    justify-content: center;
+    align-items: center;
+} 
+
+.flex-container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: auto;
+}
+
+.felx-up {
+    flex: 100;  /* manual resize */
+    width: 300px;
+}
+.splitter-vertical {
+    flex: 10; /* manual resize */
+    width: 18px;
+}
+.flex-down {
+    flex: 1; /* resizable */
+}
+
+/* Use Flexbox for the row */
+
+.button-on {
+    background-color: #04aa36; /* Green */
+    border: none;
+    color: white;
+    padding: 3px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+
+.button-off {
+    background-color: #ec0404; /* Green */
+    border: none;
+    color: white;
+    padding: 3px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.button-reject {
+    background-color: #ff9900; /* Green */
+    border: none;
+    color: white;
+    padding: 3px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+
+.button {
+    display: inline-block;
+    padding: 4px 6px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #fff;
+    background-color: #029b0a;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 1px #999;
+    font-size: 16px;
+  }
+  
+  .button:hover {background-color: #02b60b}
+  
+  .button:active {
+    background-color: #3e8e41;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+
+  }

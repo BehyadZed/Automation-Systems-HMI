@@ -1,0 +1,330 @@
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+<script type="text/javascript">
+  
+var $SCRIPT_ROOT = {{ request.script_root|tojson|safe}};
+var intervalID = setInterval(update_values,1000);
+
+  function update_values() {
+        $.getJSON($SCRIPT_ROOT + '/data',
+               
+      function(data) {
+        $('#result_1').text(data.result[0]);
+        $('#result_2').text(data.result[1]);
+        $('#result_3').text(data.result[2]);
+        $('#result_4').text(data.result[3]);
+        $('#result_6').text(data.result[5]);
+        $('#result_7').text(data.result[6]);
+        $('#result_8').text(data.result[7]);
+        $('#result_9').text(data.result[8]);
+        $('#result_10').text(data.result[9]);
+        $('#result_11').text(data.result[10]);
+        $('#result_12').text(data.result[11]);
+        $('#result_13').text(data.result[12]);
+
+        const box_color_1 = data.result[4]; 
+        var box1 = document.getElementById("box1");
+        box1.style.width = "90"; 
+        box1.style.height = "50";
+        box1.style.fill = box_color_1;
+
+
+        const box_color_2 = data.result[5]; 
+        var box2 = document.getElementById("box2");
+        box2.style.width = "90"; 
+        box2.style.height = "50"; 
+        box2.style.fill = box_color_2;
+        
+        const box_color_3 = data.result[12]; 
+        var box3 = document.getElementById("box3");
+        box3.style.width = "90"; 
+        box3.style.height = "50"; 
+        box3.style.fill = box_color_3;
+
+        const box_color_4 = data.result[13]; 
+        var box4 = document.getElementById("box4");
+        box4.style.width = "90"; 
+        box4.style.height = "50"; 
+        box4.style.fill = box_color_4;
+
+        const box_color_5 = data.result[14]; 
+        var box5 = document.getElementById("box5");
+        box5.style.height = "50"; 
+        box5.style.width = "90"; 
+        box5.style.fill = box_color_5;
+
+        const box_color_6 = data.result[15]; 
+        var box6 = document.getElementById("box6");
+        box6.style.width = "90"; 
+        box6.style.height = "50"; 
+        box6.style.fill = box_color_6;
+
+        console.log(data.result);
+      });
+
+      
+      box1.style.right = "40px";
+      box1.setAttribute("y" , 26.8);
+      box1.setAttribute("x" , 2);
+      box1.setAttribute("rx" , 10);
+      box1.setAttribute("ry" , 10);
+
+      box2.style.right = "40px";
+      box2.setAttribute("y" , 26.8);
+      box2.setAttribute("x" , 3);
+      box2.setAttribute("rx" , 10);
+      box2.setAttribute("ry" , 10);
+
+      box3.style.right = "40px";
+      box3.setAttribute("y" , 26.8);
+      box3.setAttribute("x" , 3);
+      box3.setAttribute("rx" , 10);
+      box3.setAttribute("ry" , 10);
+
+      box4.style.right = "40px";
+      box4.setAttribute("y" , 26);
+      box4.setAttribute("x" , 0);
+      box4.setAttribute("rx" , 10);
+      box4.setAttribute("ry" , 10);
+
+      box5.style.right = "40px";
+      box5.setAttribute("y" , 26);
+      box5.setAttribute("x" , 5);
+      box5.setAttribute("rx" , 10);
+      box5.setAttribute("ry" , 10);
+
+      box6.style.right = "40px";
+      box6.setAttribute("y" , 26);
+      box6.setAttribute("x" , 2);
+      box6.setAttribute("rx" , 10);
+      box6.setAttribute("ry" , 10);
+    
+    };
+  
+    function stopTextColor() {
+      clearInterval(intervalID);
+    }
+
+</script>
+
+<script>
+  var svg = document.getElementsByTagName("svg");
+
+  var rect = document.getElementsByTagName("rect");
+
+  var text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+  text.setAttribute('x', '10');
+  text.setAttribute('y', '20');
+  text.setAttribute('fill', '#000');
+  text.textContent = "";
+</script>
+
+
+<body onload="update_values();">
+  <link rel="stylesheet" href='../static/style.css'/><font size = '2'> 
+  
+  <div class="panel-container">
+    
+    <div class="panel-left">
+      <img src="../static/Pinjection.png" alt="" width="440" height="100"/>  
+      <h1 style="color: rgb(135,206,235)" > </h1>
+      <hr color="black">
+      <h1 style="color: rgb(135,206,235)" > Dynamic Update </h1>
+      
+      <p>
+        <h3> Gear Feeder State: <font size = '-1'> <span id = result_1 style="color: rgb(228, 13, 67)"> </span> </font> </h3>
+        <h3> Mag Sensor: <font size = '-1'> <span id = result_2 style="color: rgb(228, 13, 67)"> </span> </font> </h3>
+        <h3> Gate Feeder A : <font size = '-1'> <span id = result_3 style="color: rgb(228, 13, 67)"> </span> </font> </h3>
+        <h3> Gate Feeder B :  <font size = '-1'> <span id = result_4 style="color: rgb(228, 13, 67)"> </span> </font> </h3>
+        <h3> Gear Sorter :  <font size = '-1'> <span id = result_7 style="color: rgb(228, 13, 67)"> </span> </font> </h3>
+        <h3> Gear #1 Sorter Mag Sensor :  <font size = '-1'> <span id = result_8 style="color: rgb(228, 13, 67)"> </span> </font> </h3>
+        <h3> Gear #2 Sorter Mag Sensor :  <font size = '-1'> <span id = result_9 style="color: rgb(228, 13, 67)"> </span> </font> </h3>
+        <h3> Gear Sorter Gate A :  <font size = '-1'> <span id = result_10 style="color: rgb(228, 13, 67)"> </span> </font> </h3>
+        <h3> Gear Sorter Gate B :  <font size = '-1'> <span id = result_11 style="color: rgb(228, 13, 67)"> </span> </font> </h3>
+      </p>
+
+      <h1 style="color: rgb(135,206,235)">  Manual Assembly</h1>
+
+      <p> <font size = '4'> Feeder Control: </font> 
+        <a href="/on"> <button class="button-on" > TURN ON </button> </a>
+        <a href="/off"> <button class="button-off"> TURN OFF </button> </a>
+      </p>
+    
+
+      <p> <font size = '4'> FeederMag: </font> 
+        <a href="/rotate"> <button button class="button-on"> INSERT </button> </a>
+      </p>
+
+      <p> <font size = '4'> Sorter Control: </font> 
+        <a href="/sorterStart"> <button button class="button-on"> START </button> </a>
+        <a href="/sorterStop"> <button button class="button-off"> STOP </button> </a>
+        <a href="/reject"> <button button class="button-reject"> REJECT </button> </a>
+      </p>
+
+      <p> <font size = '4'> Sorter Mag: </font> 
+        <a href="/magInsert"> <button button class="button-on"> INSERT </button> </a>
+      </p>
+
+      <h1 style="color: rgb(135,206,235)"> Main Rail </h1>
+
+      <p> <font size = '4'> Rail:  </font> 
+        <a href="/mainRailIn"> <button class="button">HOME</button> </a>
+        <a href="/mainRailMove"> <button class="button">MOVE</button> </a>
+      </p>
+
+      <div> 
+
+  <div class="splitter-vertical">
+  </div>
+  </div>
+  
+  </div>
+
+    <div class="splitter">
+      
+    </div> 
+    
+    <article class="panel-right">
+    
+  
+      <div class="wrapper">
+        <div class="svg-container">
+          <svg version="1.1" viewBox="-10 0 520 900" preserveAspectRatio="xMinYMin meet" style ='float' class="svg-content">
+            
+            <defs>
+              <marker id="arrow" markerWidth="4" markerHeight="10" viewBox="-2 -4 4 4" refX="0" refY="0" markerUnits="strokeWidth" orient="auto">
+                <polyline points="2,-2 0,0 2,2" stroke="#443c3d" stroke-width="0.75px" fill="none"/>
+              </marker>
+            </defs>
+          
+            <g class="box-group">
+              <g transform="translate(-10)">
+
+                <circle fill="white" cx="55" cy="50" r="45" opacity="1" />
+                <text x="18" y="58" font-family="Open Sans Condensed" font-size="21" stroke="none" fill="#000" font-weight="100" style="text-transform:uppercase; letter-spacing: 1px">Start</text>
+                <line x1="98" x2="135" y1="50" y2="50" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1" />
+              </g>
+                
+              <line x1="100" x2="136" y1="50" y2="50" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1" />
+              <g transform="translate(136)">
+                 
+              <rect id='box1'/>
+              <text x="16" y="47" font-family="Open Sans Condensed" font-size="12" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Feeder
+                <tspan x="16" dy="17">Step #1</tspan>
+              </text>
+              </g>
+        
+              <line x1="230" x2="268" y1="50" y2="50" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1" />
+              
+              <g transform="translate(268)">
+              <rect id='box2'/>
+              <text x="4" y="47" font-family="Open Sans Condensed" font-size="8" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px"> Gate Feeder A
+                <tspan x="14" dy="17" color = 'red' font-size="12"> Step #2 </tspan>
+              
+              </text>
+              </g>
+              
+              <line x1="362" x2="400" y1="50" y2="50" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1" />
+              
+              <g transform="translate(400)">
+                <rect id='box3'/>
+                <text x="4" y="47" font-family="Open Sans Condensed" font-size="8" stroke="none" fill="#f5f3e7" font-weight="1000" style="text-transform:uppercase; letter-spacing: 1px"> Gate Feeder B
+                <tspan id = "my-tspan" font-size="12" x="19" dy="17">Step #3</tspan>
+              </text>
+              </g>
+            </g>
+            
+            <line x1="450" x2="450" y1="77" y2="124" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1" />
+            
+            <g class="box-group" transform="translate(0,100)">
+                
+              <line x1="100" x2="136" y1="50" y2="50" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1" /> 
+        
+              <g transform="translate(136)">
+              <rect id="box6"/>
+              <text x="4" y="47" font-family="Open Sans Condensed" font-size="8" stroke="none" fill="#f5f3e7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px"> Gate Sorter B
+                <tspan x="16" dy="17" font-size="12">Step #6</tspan>
+              </text>
+              </g>
+        
+              <line x1="230" x2="268" y1="50" y2="50" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1" />
+              
+              <g transform="translate(265)">
+                
+              <rect id='box5' x="2" y="25"/>
+              <text x="6" y="47" font-family="Open Sans Condensed" font-size="8" stroke="none" fill="#fff" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px"> Gate Sorter A
+                <tspan x="16" dy="17" font-size="12" >Step #5</tspan>
+              </text>
+              </g>
+
+              <line x1="362" x2="360" y1="50" y2="50" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1"/>
+              
+              <g transform="translate(400)">
+              <rect id='box4'/>    
+              <text x="14" y="47" font-family="Open Sans Condensed" font-size="12" stroke="none" fill="#F5F3E7" font-weight="900" style="text-transform:uppercase; letter-spacing: 1px">Sorter
+                <tspan x="12" dy="17" font-size="12" >Step #4</tspan>
+              </text>
+              </g>
+  
+              <line x1="362" x2="400" y1="50" y2="50" stroke-width="2" stroke="#443c3d" stroke-dasharray="2,1" />
+              
+              <g transform="translate(392)">
+                 <circle fill="#ffffff" cx="-340" cy="50" r="45" opacity="1" />
+                <text x="-370" y="60" font-family="Open Sans Condensed" font-size="26" stroke="none" fill="#000" font-weight="100" style="text-transform:uppercase; letter-spacing: 1px">End</text>
+              </g>
+            </g>
+          
+           </svg>
+        </div>
+      </div>  
+      
+      <div> 
+
+        <div class="flex-container" >
+          <div class="flex-up">
+            <div class="wrp">
+         <table border="3">
+           <tr> 
+              <th> </th>
+              <th> </th>
+              <th> </th>
+              <th> </th>
+           </tr>
+      
+           <tr>
+              <th> Number Of Iterations </th>
+              <td> <span id = result_12 style="color: yellow"> </span> </td>
+           </tr>
+      
+           <tr> 
+              <th> Pass </th>
+              <td> 5 </td>
+           </tr>
+      
+           <tr> 
+              <th>Fail</th>
+              <td> 8 </td>
+           </tr>
+      
+           <tr> 
+             <th>Success Rate</th>
+             <td> 67 % </td>
+           </tr>
+      
+          <tr> 
+           <th> Iteration Time </th>
+           <td> 5 s </td>
+          </tr>
+          
+          </table>
+        </div> 
+        </nav>
+        </div>
+        </div>      
+
+
+    </article>
+</div>
+
+
+</body>
