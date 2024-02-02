@@ -8,7 +8,7 @@ class Dummy_feeder:
         self.no_of_controlled_states = no_of_controlled_states
         self.random_states = np.zeros(no_of_random_states , dtype=int)
         self.controlled_states = np.ones(no_of_controlled_states , dtype=int)*2
-
+ 
         Thread(target=self.shuffle).start()
         
     def turn_on(self, controlled_state_no):
